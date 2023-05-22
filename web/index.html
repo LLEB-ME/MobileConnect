@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{.Language}}">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{.Title}} – MobileConnect</title>
+		<link href="/index.css" rel="stylesheet">
+		<script src="/index.js"></script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<img src="/logo.png" alt="{{.LogoText}}">
+			</div>
+			<p>MobileConnect</p>
+		</header>
+		<main>
+			<h1>{{.Title}}</h1>
+			<section>
+				<img src="{{.QRBlob}}">
+				<div>
+					<ul>
+						<li>{{.StepOne}}</li>
+						<li>{{.StepTwo}}</li>
+						<li>{{.StepThree}}</li>
+					</ul>
+					<p>{{.ConnStatus}}</p>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<p>{{.CopyrightText}}</p>
+			<p>
+				{{ range $k, $v := .CopyrightURLs }}
+					{{ if $k == (len $CopyrightURLs) }}
+						{{$v}}
+					{{ else }}
+						{{$v}} |
+					{{ end }}
+				{{ end }}
+			</p>
+		</footer>
+	</body>
+</html>
